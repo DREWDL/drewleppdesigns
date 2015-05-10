@@ -4,4 +4,6 @@ dist
 .sass-cache
 bower_components
 dist
-**/*.psd
+*.psd
+.DS_Store
+
