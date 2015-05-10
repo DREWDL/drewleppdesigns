@@ -84,7 +84,15 @@ module.exports = function (grunt) {
                 createConfig: function (context, block) {
                   var generated = context.options.generated;
                   generated.options = {
-                    separator: ';\n'
+                    process: function(src, filepath) {
+                      var nSrc = src;
+                      if (filepath.split(/\./).pop() === 'js') {
+                        nSrc = src + ';\n';
+                      } else if (filepath.split(/\./).pop() === 'css') {
+                        nSrc = src.replace(/@charset *('utf-8'|"utf-8");/gi, '').replace(/}\s*;/g, '}');
+                      }
+                      return nSrc;
+                    }
                   };
                 }
               }]
@@ -153,8 +161,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'images/{,*/}*.{webp,ico}',
+            'styles/{,*/}*.{gif,png,eot,ttf,woff}'
           ]
         }, {
           expand: true,

@@ -16,6 +16,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         
     <!-- build:css styles/index.css -->
+    <link rel="stylesheet" href="styles/imports.css">
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/font-awesome.css">
     <link rel="stylesheet" href="styles/et-line.css">
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="styles/animate.css">
     <link rel="stylesheet" href="styles/vertical-rhythm.min.css">
     <link rel="stylesheet" href="styles/owl.carousel.css">
+    <link rel="stylesheet" href="styles/owl.transitions.css">
     <link rel="stylesheet" href="styles/magnific-popup.css">
     <link rel="stylesheet" href="styles/YTPlayer.css">  
     <!-- endbuild -->  
@@ -44,11 +46,6 @@
         <!-- Home Section -->
         <section class="home-section bg-dark-alfa-30 fixed-height-small" data-background="images/video-loading.jpg" id="home">
             <div class="js-height-parent container">
-
-                <!-- Video BG Init -->
-                <div class="player" data-property="{videoURL:'http://youtu.be/x-a0qKe78kI',containment:'#home',autoPlay:true, showControls:false, showYTLogo: false, mute:true, startAt:0, opacity:1}">
-                </div>
-                <!-- End Video BG Init -->
 
                 <!-- Hero Content -->
                 <div class="home-content">
@@ -76,6 +73,11 @@
             </div>
         </section>
         <!-- End Home Section -->
+
+        <!-- Video BG Init -->
+        <div class="player" data-property="{videoURL:'http://youtu.be/x-a0qKe78kI',containment:'#home',autoPlay:true, showControls:false, showYTLogo: false, mute:true, startAt:0, opacity:1}">
+        </div>
+        <!-- End Video BG Init -->
 
         <!-- Navigation panel -->
         <nav class="main-nav  stick-fixed">
@@ -453,7 +455,6 @@ Everybody, leave all the hard work to us, relax, and let us work on blowing your
 <!-- End Page Wrap -->
 
 <!-- JS -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
 <!-- build:js scripts/index.js -->
 <script type="text/javascript" src="scripts/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="scripts/jquery.easing.1.3.js"></script>
