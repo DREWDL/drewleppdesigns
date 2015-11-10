@@ -1,8 +1,8 @@
 <?php
 if($_POST)
 {
-	$to_Email   	= "support@bestlooker.pro"; //Replace with recipient email address
-	$subject        = 'Message from my website'; //Subject line for emails
+	$to_Email   	= "hello@drewlepp.com"; //Replace with recipient email address
+	$subject        = 'User Research Consent'; //Subject line for emails
 	
 	
 	//check if its an ajax request, exit if not
@@ -19,7 +19,7 @@ if($_POST)
     } 
 	
 	//check $_POST vars are set, exit if any missing
-	if(!isset($_POST["userName"]) || !isset($_POST["userEmail"]) || !isset($_POST["userMessage"]))
+	if(!isset($_POST["userName"]) || !isset($_POST["userEmail"]) )
 	{
 		$output = json_encode(array('type'=>'error', 'text' => 'Input fields are empty!'));
 		die($output);
@@ -41,11 +41,7 @@ if($_POST)
 		$output = json_encode(array('type'=>'error', 'text' => 'Please enter a valid email!'));
 		die($output);
 	}
-	if(strlen($user_Message)<5) //check emtpy message
-	{
-		$output = json_encode(array('type'=>'error', 'text' => 'Too short message! Please enter something.'));
-		die($output);
-	}
+	
 	
 	//proceed with PHP email.
 	$headers = 'From: '.$user_Email.'' . "\r\n" .
@@ -59,7 +55,7 @@ if($_POST)
 		$output = json_encode(array('type'=>'error', 'text' => 'Could not send mail! Please check your PHP mail configuration.'));
 		die($output);
 	}else{
-		$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$user_Name .'! Thank you for your email'));
+		$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$user_Name .'! Thank you for your submission'));
 		die($output);
 	}
 }
