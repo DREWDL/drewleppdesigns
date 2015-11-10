@@ -39,7 +39,6 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
@@ -63,7 +62,7 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/scripts/**/*.js',
           '<%= yeoman.dist %>/styles/**/*.css',
           '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
+          '<%= yeoman.dist %>/fonts/*'
         ]
       }
     },
@@ -110,7 +109,8 @@ module.exports = function (grunt) {
         assetsDirs: [
           '<%= yeoman.dist %>',
           '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
+          '<%= yeoman.dist %>/styles',
+          '<%= yeoman.dist %>/fonts'
         ],
         blockReplacements: {
           js: function (block) {
@@ -125,7 +125,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '**/*.{png,jpg,jpeg,gif}',
+          src: ['**/*.{png,jpg,jpeg,gif}'],
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -186,12 +186,6 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: [
-        'copy:styles'
-      ],
-      test: [
-        'copy:styles'
-      ],
       dist: [
         'copy:styles',
         'imagemin'
